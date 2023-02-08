@@ -6,14 +6,14 @@ import androidx.room.PrimaryKey
 import com.example.domain.model.User
 
 @Entity("users")
-data class UserEntry(
+internal data class UserEntry(
     @PrimaryKey val id: Int,
     val name: String,
     @ColumnInfo("avatar_url") val avatarUrl: String,
     @ColumnInfo("is_checked") val isChecked: Boolean
 )
 
-fun List<UserEntry>.mapToUser() = map {
+internal fun List<UserEntry>.mapToUser() = map {
         User(
             id = it.id,
             login = it.name,
@@ -22,7 +22,7 @@ fun List<UserEntry>.mapToUser() = map {
         )
     }
 
-fun User.mapToUserEntry() =
+internal fun User.mapToUserEntry() =
     UserEntry(
         id = id,
         name = login,

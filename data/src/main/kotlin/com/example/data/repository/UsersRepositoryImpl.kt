@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 
-class UsersRepositoryImpl(
+internal class UsersRepositoryImpl(
     private val networkApi: NetworkApi,
     private val usersDao: UsersDao
 ) : UsersRepository {
@@ -42,7 +42,7 @@ class UsersRepositoryImpl(
             emptyFlow()
         }
 
-    override suspend fun addUser(user: User) =
+    override suspend fun saveUser(user: User): Long =
         usersDao.addUser(user.mapToUserEntry())
 
     override suspend fun deleteUser(user: User) =

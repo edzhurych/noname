@@ -1,8 +1,7 @@
-package com.example.noname.view.home
+package com.example.noname.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.viewpager2.widget.ViewPager2
 import com.example.noname.R
 import com.example.noname.adapter.ViewPagerAdapter

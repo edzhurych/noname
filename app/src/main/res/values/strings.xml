@@ -6,4 +6,7 @@
     <string name="saved_users">Saved users</string>
     <string name="user_name">Name</string>
     <string name="saved">Saved</string>
+
+    <string name="user_is_saved">User added</string>
+    <string name="user_is_not_saved">User was already added</string>
 </resources>

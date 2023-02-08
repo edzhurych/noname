@@ -5,6 +5,6 @@ import com.example.domain.repository.UsersRepository
 import com.example.domain.usecase.GetSavedUsersUseCase
 import kotlinx.coroutines.flow.Flow
 
-class GetSavedUsers(private val repository: UsersRepository) : GetSavedUsersUseCase {
+internal class GetSavedUsers(private val repository: UsersRepository) : GetSavedUsersUseCase {
     override fun invoke(): Flow<List<User>> = repository.getSavedUsers()
 }

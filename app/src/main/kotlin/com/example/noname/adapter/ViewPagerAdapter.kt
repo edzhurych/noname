@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.noname.view.saved.SavedUsersFragment
-import com.example.noname.view.users.AllUsersFragment
+import com.example.noname.ui.saved.SavedUsersFragment
+import com.example.noname.ui.users.AllUsersFragment
 
 class ViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment) {
 

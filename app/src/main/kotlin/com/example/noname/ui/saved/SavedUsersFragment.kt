@@ -1,4 +1,4 @@
-package com.example.noname.view.saved
+package com.example.noname.ui.saved
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import com.example.domain.usecase.DeleteUserUseCase
 import com.example.domain.usecase.GetSavedUsersUseCase
 import com.example.noname.adapter.UsersAdapter
 import com.example.noname.databinding.FragmentAllUsersBinding
-import com.example.noname.view.BaseFragment
+import com.example.noname.ui.BaseFragment
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
