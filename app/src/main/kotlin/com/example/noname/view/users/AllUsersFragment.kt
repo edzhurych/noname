@@ -5,13 +5,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.domain.FailureGetUsers
 import com.example.domain.SuccessGetUsers
-import com.example.domain.usecase.AddUserUseCase
+import com.example.domain.usecase.SaveUserUseCase
 import com.example.domain.usecase.GetUsersUseCase
+import com.example.noname.R
 import com.example.noname.adapter.UsersAdapter
 import com.example.noname.databinding.FragmentAllUsersBinding
 import com.example.noname.view.BaseFragment
@@ -21,7 +23,7 @@ import org.koin.android.ext.android.inject
 class AllUsersFragment : BaseFragment<FragmentAllUsersBinding>() {
     private lateinit var adapter: UsersAdapter
 
-    private val addUser: AddUserUseCase by inject()
+    private val saveUser: SaveUserUseCase by inject()
     private val getUsers: GetUsersUseCase by inject()
 
     override val binder: (LayoutInflater, ViewGroup?) -> FragmentAllUsersBinding =
@@ -41,7 +43,10 @@ class AllUsersFragment : BaseFragment<FragmentAllUsersBinding>() {
                 is SuccessGetUsers -> adapter = UsersAdapter(usersLIst.value) { user, isChecked ->
                     if (isChecked) {
                         lifecycleScope.launch {
-                            addUser(user.copy(is_checked = true))
+                            when (saveUser(user.copy(is_checked = true))) {
+                                -1L -> showMessage(getString(R.string.user_is_not_saved))
+                                else -> showMessage(getString(R.string.user_is_saved))
+                            }
                         }
                     }
                 }
@@ -55,4 +60,7 @@ class AllUsersFragment : BaseFragment<FragmentAllUsersBinding>() {
         }
         Log.d("edz", "AllUsersFragment. onViewCreated().  2 Thread: [${Thread.currentThread().name}]")
     }
+
+    private fun showMessage(message: String) =
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
 }

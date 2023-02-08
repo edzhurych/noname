@@ -42,7 +42,7 @@ class UsersRepositoryImpl(
             emptyFlow()
         }
 
-    override suspend fun addUser(user: User) =
+    override suspend fun saveUser(user: User): Long =
         usersDao.addUser(user.mapToUserEntry())
 
     override suspend fun deleteUser(user: User) =
