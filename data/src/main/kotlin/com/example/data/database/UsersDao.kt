@@ -1,7 +1,6 @@
 package com.example.data.database
 
 import androidx.room.*
-import com.google.android.material.circularreveal.CircularRevealHelper.Strategy
 import kotlinx.coroutines.flow.Flow
 
 @Dao
