@@ -42,6 +42,13 @@ class UsersRepositoryImpl(
             emptyFlow()
         }
 
+    override suspend fun getUserIds(): List<Long> =
+        try {
+            usersDao.getUserIds()
+        } catch(e: Exception) {
+            emptyList()
+        }
+
     override suspend fun saveUser(user: User): Long =
         usersDao.addUser(user.mapToUserEntry())
 

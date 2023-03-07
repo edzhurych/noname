@@ -5,5 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface GetSavedUsersUseCase {
 
-    operator fun invoke(): Flow<List<User>>
+    fun getSavedUsers(): Flow<List<User>>
+    suspend fun getUserIds(): List<Long>
 }

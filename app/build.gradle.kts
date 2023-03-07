@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.noname"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -39,6 +39,8 @@ android {
 dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
+
+    implementation("com.intellimec.mobile.android:heartbeat:0.0.0.local")
 
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.appcompat:appcompat:1.4.1")

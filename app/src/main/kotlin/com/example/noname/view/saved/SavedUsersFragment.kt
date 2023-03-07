@@ -42,7 +42,7 @@ class SavedUsersFragment : BaseFragment<FragmentAllUsersBinding>() {
         lifecycleScope.launch {
             binding.progressUsers.isVisible = true
 
-            getSavedUsers().collect {
+            getSavedUsers.getSavedUsers().collect {
                 binding.progressUsers.isVisible = false
 
                 binding.tvEmpty.isVisible = it.isEmpty()
